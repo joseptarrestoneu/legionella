@@ -1,35 +1,48 @@
 .listElements {
     width: 100%;
-    margin: 80px auto 20px;
+    margin: 3em auto 2em;
 }
 
 table {
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
     background-color: #fff;
     border-spacing: 0;
 }
   
 th, td {
     padding-right: 10px;
- }
+}
 
- th:first-of-type {
+th:first-of-type {
     border-top-left-radius: .3em;
- }
+}
 
- th:last-of-type {
+th:last-of-type {
     border-top-right-radius: .3em;
- }
+}
   
 .columns {
     width: 130px;
     padding-left: 1em;
 }
-  
-.columns.column1,
-.columns.column2 {
-    width: 150px;
-    padding-left: 1.5em;
+
+.column1 {
+    width: 50px;
+    text-align: center;
+}
+
+.column3 {
+    width: 200px;
+}
+
+.column7 {
+    width: 50px;
+    text-align: center;
+}
+
+.column8 {
+    width: 50px;
 }
 
 .rows.head th,
@@ -48,9 +61,8 @@ th, td {
 }
 
 .table.ver3 th {
-    font-size: 12px;
+    font-size: .775em;
     color: #fff;
-    line-height: 1.4;
     text-transform: uppercase;
     background-color: #6c7ae0;
 }
@@ -65,17 +77,14 @@ th, td {
 }
 
 .table.ver3 td:last-child {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 .table td i {
-    margin-left: 1em;
+    margin: 0 .6em 0 .6em;
     cursor: pointer;
 }
 
-.table td:last-child abbr i:hover {
+.table td:last-child i:hover {
     transform: scale(1.3);
 }
