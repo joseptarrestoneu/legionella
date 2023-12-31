@@ -41,10 +41,6 @@ th:last-of-type {
     text-align: center;
 }
 
-.column8 {
-    width: 50px;
-}
-
 .rows.head th,
 .rows td {
     padding-top: 1em;
