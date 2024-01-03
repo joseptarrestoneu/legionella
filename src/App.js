@@ -1,13 +1,26 @@
-import styles from './App.module.css';
-import Login from './components/Login/Login';
-import ElementsList from './components/ElementsList/ElementsList';
+import { Routes, Route } from 'react-router-dom'
+import NavBar from './components/NavBar/NavBar';
+import Home from './views/Home/Home';
+import Elements from './views/Elements/Elements';
+import Footer from './components/Footer/Footer';
+import styles from './App.module.css'
 
 function App() {
   return (
-    <div className={styles.main}>
-      {/* <Login /> */}
-      <ElementsList />
-    </div>
+    <>
+      <header>
+        <NavBar></NavBar>
+      </header>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home></Home>}/>
+          <Route path="/elements" element={<Elements></Elements>}/>
+        </Routes>
+      </main>
+      <footer>
+        <Footer></Footer>
+      </footer>
+    </>
   );
 }
 
