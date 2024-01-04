@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom'
+import styles from './NavBar.module.css'
+import { NavLink } from 'react-router-dom'
 
 const NavBar = () => {
     return (
         <nav>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/elements">Elements</Link></li>
+            <NavLink className={({isActive})=> isActive ? styles.active : styles.link} to="/">Home</NavLink>
+            <NavLink className={({isActive})=> isActive ? styles.active : styles.link} to="/elements">Elements</NavLink>
         </nav>
     )
 }

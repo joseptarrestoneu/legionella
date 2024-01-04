@@ -1,0 +1,13 @@
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #1e1e1e;
+    color: #6b9a34;
+}
+
+.logout {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 3em;
+}

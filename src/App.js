@@ -10,6 +10,7 @@ function App() {
     <>
       <header>
         <NavBar></NavBar>
+        <p className={styles.logout}>Logout</p>
       </header>
       <main>
         <Routes>

@@ -1,0 +1,28 @@
+nav {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 1em
+}
+
+.link {
+  width: 100px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #bebebe;
+  border-radius: .3rem;
+  padding: .7em 1em;
+  margin: 0 .8em 0 .8em;
+  transition: all 0.3s ease-in-out;
+}
+
+.active {
+    width: 100px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #6C7AE0;
+    border-radius: .3rem;
+    padding: .7em 1em;
+    margin: 0 .8em 0 .8em;
+    transition: all 0.3s ease-in-out;
+}
