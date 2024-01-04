@@ -5,8 +5,14 @@ nav {
   padding: 1em
 }
 
+.menu-hamburguer {
+  height: 40px;
+  color: #fff;
+}
+
 .link {
-  width: 100px;
+  width: 150px;
+  text-align: center;
   text-decoration: none;
   color: #fff;
   background-color: #bebebe;
@@ -17,7 +23,8 @@ nav {
 }
 
 .active {
-    width: 100px;
+    width: 150px;
+    text-align: center;
     text-decoration: none;
     color: #fff;
     background-color: #6C7AE0;

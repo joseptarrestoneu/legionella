@@ -12,6 +12,7 @@ table {
   
 th, td {
     padding-right: 10px;
+    font-weight: normal;
 }
 
 th:first-of-type {
@@ -57,9 +58,7 @@ th:last-of-type {
 }
 
 .table.ver3 th {
-    font-size: .775em;
     color: #fff;
-    text-transform: uppercase;
     background-color: #6c7ae0;
 }
 
