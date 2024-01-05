@@ -1,8 +1,16 @@
 header {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     background-color: #1e1e1e;
     color: #6b9a34;
+}
+
+.logo {
+    margin: auto 1em;
+}
+
+.logo img {
+    height: 40px;
 }
 
 .logout {
@@ -10,4 +18,6 @@ header {
     justify-content: end;
     align-items: center;
     padding-right: 3em;
+    color: white;
+    cursor: pointer;
 }

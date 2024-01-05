@@ -1,11 +1,12 @@
-import Footer from '../Footer/Footer'
-import styles from './Login.module.css'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
-const Login = () => {
+import Footer from '../../components/Footer/Footer'
 
-    // Guardar estat del Login: logejat o no logejat
-    const [ logged, setIsLogged ] = useState(false)
+import styles from './Login.module.css'
+
+const Login = (props) => {
+
     // Guardar user i password
     const [ userData, setUserData ] = useState({
         username: '',
@@ -20,7 +21,7 @@ const Login = () => {
     }
 
     // Funció per actualitzar el setter del usetate de loggin
-    const handleLogin = (isLogged)=> setIsLogged(isLogged)
+    const handleLogin = (isLogged)=> props.setIsLogged(isLogged)
 
     // Handle que actua al activar el formulari del Loggin
     const handleSubmit = (event) => {
@@ -65,16 +66,16 @@ const Login = () => {
                     <form className={styles.formLogin} onSubmit={handleSubmit}>
                         <h1>Sign In</h1>
                         <div className={styles.socialIcons}>
-                            <a href="#" className={styles.icon}><i className="fa-brands fa-windows"></i></a>
-                            <a href="#" className={styles.icon}><i className="fa-brands fa-twitter"></i></a>
-                            <a href="#" className={styles.icon}><i className="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#" className={styles.icon}><i className="fa-solid fa-envelope"></i></a>
+                            <Link to="#" className={styles.icon}><i className="fa-brands fa-windows"></i></Link>
+                            <Link to="#" className={styles.icon}><i className="fa-brands fa-twitter"></i></Link>
+                            <Link to="#" className={styles.icon}><i className="fa-brands fa-linkedin-in"></i></Link>
+                            <Link to="#" className={styles.icon}><i className="fa-solid fa-envelope"></i></Link>
                         </div>
                         <span>Utilitza el teu email com a email password</span>
                         <input className={styles.email} type='email' name='username' placeholder='Email' onChange={handleChange} value={userData.username}></input>
                         <input className={styles.password} type='password' name='userpass' placeholder='Password' onChange={handleChange} value={userData.userpass}></input>
                         <button type='submit'>Sign In</button>
-                        <a href="#">Has oblidat el Password?</a>
+                        <Link href="#">Has oblidat el Password?</Link>
                     </form>
                 </div>
                 <div className={styles.toggleContainer}>
