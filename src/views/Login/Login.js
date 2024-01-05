@@ -1,11 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import getAllUsers from '../../services/users/getAllUsers'
 
 import Footer from '../../components/Footer/Footer'
 
 import styles from './Login.module.css'
 
 const Login = (props) => {
+
+    // Guardar user i password
+    const [ users, setUsers ] = useState({})  
+
 
     // Guardar user i password
     const [ userData, setUserData ] = useState({
@@ -15,10 +20,17 @@ const Login = (props) => {
     // Guardar el tipus d'error en el logejat: per usuari o password equivocat o perquè està buit
     const [ error , setError ] = useState(null)
 
-    const data = {
-        username: 'abc@gmail.com',
-        userpass: '1234',
-    }
+    // const data = {
+    //     username: 'abc@gmail.com',
+    //     userpass: '1234',
+    // }
+
+    useEffect(() => {
+        getAllUsers()
+        .then(users => {
+            setUsers(users)
+        })
+    },[])
 
     // Funció per actualitzar el setter del usetate de loggin
     const handleLogin = (isLogged)=> props.setIsLogged(isLogged)
@@ -26,18 +38,17 @@ const Login = (props) => {
     // Handle que actua al activar el formulari del Loggin
     const handleSubmit = (event) => {
         event.preventDefault()
-        if (userData.username === data.username && userData.userpass  === data.userpass) {
+
+        if (userData.username === users[0].userUser && userData.userpass  === users[0].userPassword) {
             handleLogin(true)
             setError(null)
         } else {
             handleLogin(false)
             if (userData.username.trim() === '' || userData.userpass.trim() === '') {
                 setError("Si us plau, introduiu les dades correctament")
-                console.log("1");
                 
             } else {
                 setError("Usuari o password incorrecte")
-                console.log("2");
             }
         }
         // Resetejar el formulari
@@ -72,8 +83,8 @@ const Login = (props) => {
                             <Link to="#" className={styles.icon}><i className="fa-solid fa-envelope"></i></Link>
                         </div>
                         <span>Utilitza el teu email com a email password</span>
-                        <input className={styles.email} type='email' name='username' placeholder='Email' onChange={handleChange} value={userData.username}></input>
-                        <input className={styles.password} type='password' name='userpass' placeholder='Password' onChange={handleChange} value={userData.userpass}></input>
+                        <input className={styles.email} type='email' name='username' placeholder='Usuari' onChange={handleChange} value={userData.username}></input>
+                        <input className={styles.password} type='password' name='userpass' placeholder='Contrasenya' onChange={handleChange} value={userData.userpass}></input>
                         <button type='submit'>Sign In</button>
                         <Link href="#">Has oblidat el Password?</Link>
                     </form>
