@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { useState } from 'react';
 
 import NavBar from './components/NavBar/NavBar';
@@ -8,8 +8,8 @@ import Companies from './views/Companies/Companies';
 import Headquarters from './views/Headquarters/Headquarters';
 import Inspections from './views/Inspections/Inspections';
 import Elements from './views/Elements/Elements';
-import Measures from './views/Measures/Measures';
-import Units from './views/Units/Units';
+import Upkeep from './views/Upkeep/Upkeep';
+import UpkeepTypes from './views/UpkeepTypes/UpkeepTypes';
 import Users from './views/Users/Users';
 import Login from './views/Login/Login';
 import image from "./assets/img/logo_sant-tomas.png";
@@ -36,12 +36,12 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home></Home>}/>
-            <Route path="/empreses" element={<Companies></Companies>}/>
-            <Route path="/centres" element={<Headquarters></Headquarters>}/>
             <Route path="/inspeccions" element={<Inspections></Inspections>}/>
             <Route path="/elements" element={<Elements></Elements>}/>
-            <Route path="/mesures" element={<Measures></Measures>}/>
-            <Route path="/unitats" element={<Units></Units>}/>
+            <Route path="/empreses" element={<Companies></Companies>}/>
+            <Route path="/centres" element={<Headquarters></Headquarters>}/>
+            <Route path="/manteniments" element={<Upkeep></Upkeep>}/>
+            <Route path="/tipus-manteniment" element={<UpkeepTypes></UpkeepTypes>}/>
             <Route path="/usuaris" element={<Users></Users>}/>
           </Routes>
         </main>

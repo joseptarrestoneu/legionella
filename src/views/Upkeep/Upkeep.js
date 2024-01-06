@@ -1,20 +1,20 @@
 import { useEffect, useState } from 'react'
-import getAllHeadquarters from '../../services/headquartes/getAllHeadquarters'
+import getAllUpkeeps from '../../services/upkeeps/getAllUpkeeps'
 
-import styles from './Headquarters.module.css'
+import styles from './Upkeep.module.css'
 
-const Headquarters = () => {
+const Upkeep = () => {
   
-  const [ arees, setArees ] = useState([])
+  const [ upkeeps, setUpkeeps ] = useState([])
 
   useEffect(() => {
-    getAllHeadquarters()
-    .then(arees => {
-      setArees(arees)
+    getAllUpkeeps()
+    .then(upkeep => {
+      setUpkeeps(upkeep)
     })
   },[])
 
-  const titles = [ "Àrea", "Empresa", "Estat", "Accions" ]
+  const titles = [ "Manteniment", "Descripció", "Tipus manteniment", "Estat", "Accions" ]
 
   return (
     <div className={styles.listElements}>
@@ -31,12 +31,13 @@ const Headquarters = () => {
           </thead>
           <tbody>
             {
-              arees.map(element => {
+              upkeeps.map(element => {
                 return (
                   <tr className={styles.rows}>
-                    <td className={styles.columns}>{element.areaName}</td>
-                    <td className={styles.columns}>{element.areaCompanyId.companyName}</td>
-                    <td className={styles.columns}>{element.areaActive ? "Actiu" : "No actiu"}</td>
+                    <td className={styles.columns}>{element.upkeepName}</td>
+                    <td className={styles.columns}>{element.upkeepDescription}</td>
+                    <td className={styles.columns}>{element.upkeepTypeId.upkeepTypeName} ({element.upkeepTypeId.upkeepTypeUnits})</td>
+                    <td className={styles.columns}>{element.upkeepActive ? "Actiu" : "No actiu"}</td>
                     <td className={styles.columns}>
                       <i class="fa-solid fa-pen-to-square"></i>
                       <i class="fa-solid fa-trash" ></i>
@@ -52,4 +53,4 @@ const Headquarters = () => {
   )
 }
 
-export default Headquarters
+export default Upkeep

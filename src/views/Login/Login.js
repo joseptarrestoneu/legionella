@@ -1,8 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-// import getAllUsers from '../../services/users/getAllUsers'
 import getUserByName from '../../services/users/getUserByName'
-
 import Footer from '../../components/Footer/Footer'
 
 import styles from './Login.module.css'
@@ -14,18 +12,9 @@ const Login = (props) => {
         username: '',
         userpass: '',
     })
-    // Guardar login pending
-    const [ pending, setPending ] = useState(true)
 
     // Guardar el tipus d'error en el logejat: per usuari o password equivocat o perquè està buit
     const [ error , setError ] = useState(null)
-
-    // useEffect(() => {
-    //     getUserByName()
-    //     .then(users => {
-    //         setUsers(users)
-    //     })
-    // },[])
 
     // Funció per actualitzar el setter del usetate de loggin
     const handleLogin = (isLogged)=> props.setIsLogged(isLogged)
@@ -73,7 +62,6 @@ const Login = (props) => {
     return (
         <div className={styles.bodyLogin} data-theme='dark'>
             <div className={styles.containerLogin}>
-                <div className={styles["loggin-container"]} id="loggin-modal"></div>
                 <div className={styles.formContainer} id='formContainer'>
                     <form className={styles.formLogin} onSubmit={handleSubmit}>
                         <h1>Sign In</h1>
@@ -105,7 +93,7 @@ const Login = (props) => {
             </div>
             <Footer />
         </div>
-    )
+       )
 }
 
 export default Login

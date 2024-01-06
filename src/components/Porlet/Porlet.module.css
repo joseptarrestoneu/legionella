@@ -1,0 +1,16 @@
+.porlet {
+    width: 300px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.porlet-data {
+    font-size: 2em;
+}
+
+.porlet-name {
+    font-size: .6em;
+}

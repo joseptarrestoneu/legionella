@@ -1,9 +1,18 @@
+import { useEffect, useState } from 'react'
+import Porlet from '../../components/Porlet/Porlet'
 import styles from './Home.module.css'
 
 const Home = () => {
+
+  const [ data, setData ] = useState([])
+
+  useEffect(() => {
+    
+  },[])
+
   return (
     <div>
-        <h2>Home</h2>
+        <Porlet data={data[0]}></Porlet>
     </div>
   )
 }

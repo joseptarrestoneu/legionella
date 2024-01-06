@@ -1,20 +1,20 @@
 import { useEffect, useState } from 'react'
-import getAllHeadquarters from '../../services/headquartes/getAllHeadquarters'
+import getAllUpkeepTypes from '../../services/upkeepTypes/getAllUpkeepTypes'
 
-import styles from './Headquarters.module.css'
+import styles from './UpkeepTypes.module.css'
 
-const Headquarters = () => {
+const UpkeepTypes = () => {
   
-  const [ arees, setArees ] = useState([])
+  const [ upkeepTypes, setUpkeepTypes ] = useState([])
 
   useEffect(() => {
-    getAllHeadquarters()
-    .then(arees => {
-      setArees(arees)
+    getAllUpkeepTypes()
+    .then(upkeepTypes => {
+      setUpkeepTypes(upkeepTypes)
     })
   },[])
 
-  const titles = [ "Àrea", "Empresa", "Estat", "Accions" ]
+  const titles = [ "Tipus Manteniment", "Unitats", "Estat", "Accions" ]
 
   return (
     <div className={styles.listElements}>
@@ -31,12 +31,12 @@ const Headquarters = () => {
           </thead>
           <tbody>
             {
-              arees.map(element => {
+              upkeepTypes.map(element => {
                 return (
                   <tr className={styles.rows}>
-                    <td className={styles.columns}>{element.areaName}</td>
-                    <td className={styles.columns}>{element.areaCompanyId.companyName}</td>
-                    <td className={styles.columns}>{element.areaActive ? "Actiu" : "No actiu"}</td>
+                    <td className={styles.columns}>{element.upkeepTypeName}</td>
+                    <td className={styles.columns}>{element.upkeepTypeUnits}</td>
+                    <td className={styles.columns}>{element.upkeepTypeActive ? "Actiu" : "No actiu"}</td>
                     <td className={styles.columns}>
                       <i class="fa-solid fa-pen-to-square"></i>
                       <i class="fa-solid fa-trash" ></i>
@@ -52,4 +52,4 @@ const Headquarters = () => {
   )
 }
 
-export default Headquarters
+export default UpkeepTypes
