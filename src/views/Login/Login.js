@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import getAllUsers from '../../services/users/getAllUsers'
+// import getAllUsers from '../../services/users/getAllUsers'
+import getUserByName from '../../services/users/getUserByName'
 
 import Footer from '../../components/Footer/Footer'
 
@@ -9,28 +10,22 @@ import styles from './Login.module.css'
 const Login = (props) => {
 
     // Guardar user i password
-    const [ users, setUsers ] = useState({})  
-
-
-    // Guardar user i password
     const [ userData, setUserData ] = useState({
         username: '',
         userpass: '',
     })
+    // Guardar login pending
+    const [ pending, setPending ] = useState(true)
+
     // Guardar el tipus d'error en el logejat: per usuari o password equivocat o perquè està buit
     const [ error , setError ] = useState(null)
 
-    // const data = {
-    //     username: 'abc@gmail.com',
-    //     userpass: '1234',
-    // }
-
-    useEffect(() => {
-        getAllUsers()
-        .then(users => {
-            setUsers(users)
-        })
-    },[])
+    // useEffect(() => {
+    //     getUserByName()
+    //     .then(users => {
+    //         setUsers(users)
+    //     })
+    // },[])
 
     // Funció per actualitzar el setter del usetate de loggin
     const handleLogin = (isLogged)=> props.setIsLogged(isLogged)
@@ -38,17 +33,22 @@ const Login = (props) => {
     // Handle que actua al activar el formulari del Loggin
     const handleSubmit = (event) => {
         event.preventDefault()
-
-        if (userData.username === users[0].userUser && userData.userpass  === users[0].userPassword) {
+        getUserByName(userData.username, userData.userpass)
+        .then(logged => {
+            props.setIsLogged(logged)
+        })
+        if (props.isLogged === true) {
             handleLogin(true)
             setError(null)
         } else {
             handleLogin(false)
             if (userData.username.trim() === '' || userData.userpass.trim() === '') {
                 setError("Si us plau, introduiu les dades correctament")
+                console.log(error);
                 
             } else {
                 setError("Usuari o password incorrecte")
+                console.log(error);
             }
         }
         // Resetejar el formulari
@@ -73,6 +73,7 @@ const Login = (props) => {
     return (
         <div className={styles.bodyLogin} data-theme='dark'>
             <div className={styles.containerLogin}>
+                <div className={styles["loggin-container"]} id="loggin-modal"></div>
                 <div className={styles.formContainer} id='formContainer'>
                     <form className={styles.formLogin} onSubmit={handleSubmit}>
                         <h1>Sign In</h1>
