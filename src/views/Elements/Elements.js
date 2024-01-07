@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import getAllElements from '../../services/elements/getAllElements'
+import desactiveElement from '../../services/elements/desactiveElement'
 
 import styles from './Elements.module.css'
 
@@ -12,7 +13,12 @@ const Elements = () => {
     .then(elements => {
       setElements(elements)
     })
-  },[])
+  },[elements.elementDeleted])
+
+  const handleDesactive = (event) => {
+    console.log(event.target.parentNode.parentNode.id)
+    desactiveElement(event.target.parentNode.parentNode.id)
+  }
 
   const titles = [ "Referència", "Element", "Ubicació", "Àrea", "Empresa", "Estat", "Accions" ]
 
@@ -33,7 +39,7 @@ const Elements = () => {
             {
               elements.map(element => {
                 return (
-                  <tr className={styles.rows}>
+                  <tr className={styles.rows} id={element._id}>
                     <td className={styles.columns}>{element.elementReference}</td>
                     <td className={styles.columns}>{element.elementName}</td>
                     <td className={styles.columns}>{element.elementUbication}</td>
@@ -42,7 +48,7 @@ const Elements = () => {
                     <td className={styles.columns}>{element.elementActive ? "Actiu" : "No actiu"}</td>
                     <td className={styles.columns}>
                       <i class="fa-solid fa-pen-to-square"></i>
-                      <i class="fa-solid fa-trash" ></i>
+                      <i class="fa-solid fa-trash" onClick={handleDesactive}></i>
                     </td>
                   </tr>  
                 )

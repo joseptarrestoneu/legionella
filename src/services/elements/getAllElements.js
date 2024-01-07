@@ -5,8 +5,10 @@ const getAllElements = async () => {
 
         if (response.ok) {
             const data = await response.json()
-            console.log(data)
-            return  data
+            const dataNoDeleted = data.filter(element => {
+                return element.elementDeleted === false
+            })
+            return  dataNoDeleted
         }
     } catch (error) {
         return {message: error.message || "Something went wrong"}
