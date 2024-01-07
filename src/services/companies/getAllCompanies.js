@@ -5,7 +5,10 @@ const getAllCompanies = async () => {
 
         if (response.ok) {
             const data = await response.json()
-            return  data
+            const dataNoDeleted = data.filter(element => {
+                return element.companyDeleted === false
+            })
+            return  dataNoDeleted
         }
     } catch (error) {
         return {message: error.message || "Something went wrong"}

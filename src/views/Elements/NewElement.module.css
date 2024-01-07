@@ -1,0 +1,59 @@
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container h2 {
+    width: 90%;
+    margin: 1em auto;
+}
+
+.container form {
+    width: 90%;
+    margin: 1em auto;
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    row-gap: 1em;
+}
+
+.container form label {
+    padding: .5em;
+}
+
+.container form input,
+.container form textarea,
+.container form select {
+    padding: .5em;
+    background-color: aliceblue;
+    border-radius: .3rem;
+}
+
+.container form input:focus,
+.container form textarea:focus,
+.container form select:focus {
+    border: 1px solid #000;
+    background-color: antiquewhite;
+    border-radius: .3rem;
+}
+
+.btn_container {
+    margin: 2em auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_container .btn_add {
+    width: 100px;
+    margin: 0 auto;
+    padding: .7em;
+    border-radius: .3rem;
+    background-color: #6C7AE0;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.btn_container .btn_add:hover {
+    transform: scale(1.05);
+}

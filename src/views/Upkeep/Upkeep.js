@@ -23,8 +23,8 @@ const Upkeep = () => {
           <thead>
             <tr className={`${styles.rows} ${styles.head}`}>
               {
-                titles.map((element) =>{
-                  return <th className={styles.columns} >{element}</th>
+                titles.map((element, index) =>{
+                  return <th className={styles.columns} key={index}>{element}</th>
                 })
               }
             </tr>
@@ -33,7 +33,7 @@ const Upkeep = () => {
             {
               upkeeps.map(element => {
                 return (
-                  <tr className={styles.rows}>
+                  <tr className={styles.rows} id={element._id} key={element._id}>
                     <td className={styles.columns}>{element.upkeepName}</td>
                     <td className={styles.columns}>{element.upkeepDescription}</td>
                     <td className={styles.columns}>{element.upkeepTypeId.upkeepTypeName} ({element.upkeepTypeId.upkeepTypeUnits})</td>

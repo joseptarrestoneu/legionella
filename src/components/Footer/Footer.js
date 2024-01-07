@@ -11,7 +11,7 @@ const Footer = () => {
 
     return (
         <footer className={styles.footer}>
-            <a href="https://joseptarrestoneu.es"><span>Made by Josep Tarrés Toneu &copy; {year}</span></a>
+            <a href="https://joseptarrestoneu.es" target='blank'><span>Made by Josep Tarrés Toneu &copy; {year}</span></a>
         </footer>
     )
 }

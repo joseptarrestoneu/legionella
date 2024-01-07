@@ -12,6 +12,7 @@ import Upkeep from './views/Upkeep/Upkeep';
 import UpkeepTypes from './views/UpkeepTypes/UpkeepTypes';
 import Users from './views/Users/Users';
 import Login from './views/Login/Login';
+import NewElement from './views/Elements/NewElement';
 import image from "./assets/img/logo_sant-tomas.png";
 
 import styles from './App.module.css'
@@ -37,7 +38,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home></Home>}/>
             <Route path="/inspeccions" element={<Inspections></Inspections>}/>
-            <Route path="/elements" element={<Elements></Elements>}/>
+            <Route path="/elements/">
+              <Route index element={<Elements></Elements>}/>
+              <Route path="new-element" element={<NewElement></NewElement>}/>
+            </Route>
             <Route path="/empreses" element={<Companies></Companies>}/>
             <Route path="/centres" element={<Headquarters></Headquarters>}/>
             <Route path="/manteniments" element={<Upkeep></Upkeep>}/>

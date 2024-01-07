@@ -23,8 +23,8 @@ const Headquarters = () => {
           <thead>
             <tr className={`${styles.rows} ${styles.head}`}>
               {
-                titles.map((element) =>{
-                  return <th className={styles.columns} >{element}</th>
+                titles.map((element, index) =>{
+                  return <th className={styles.columns} key={index}>{element}</th>
                 })
               }
             </tr>
@@ -33,7 +33,7 @@ const Headquarters = () => {
             {
               arees.map(element => {
                 return (
-                  <tr className={styles.rows}>
+                  <tr className={styles.rows} id={element._id} key={element._id}>
                     <td className={styles.columns}>{element.areaName}</td>
                     <td className={styles.columns}>{element.areaCompanyId.companyName}</td>
                     <td className={styles.columns}>{element.areaActive ? "Actiu" : "No actiu"}</td>

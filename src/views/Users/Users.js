@@ -23,8 +23,8 @@ const Users = () => {
           <thead>
             <tr className={`${styles.rows} ${styles.head}`}>
               {
-                titles.map((element) =>{
-                  return <th className={styles.columns} >{element}</th>
+                titles.map((element, index) =>{
+                  return <th className={styles.columns} key={index}>{element}</th>
                 })
               }
             </tr>
@@ -33,7 +33,7 @@ const Users = () => {
             {
               users.map(element => {
                 return (
-                  <tr className={styles.rows}>
+                  <tr className={styles.rows} id={element._id} key={element._id}>
                     <td className={styles.columns}>{element.userLastName1} {element.userLastName2}, {element.userName}</td>
                     <td className={styles.columns}>{element.userDNI}</td>
                     <td className={styles.columns}>{element.userEmail}</td>
